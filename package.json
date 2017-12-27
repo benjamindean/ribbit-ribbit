@@ -1,5 +1,5 @@
 {
-	"name": "RibbitRibbit",
+	"name": "ribbit",
 	"version": "0.1.0",
 	"private": true,
 	"devDependencies": {
@@ -21,7 +21,6 @@
 		"preset": "jest-expo"
 	},
 	"dependencies": {
-		"apsl-react-native-button": "^3.1.0",
 		"events": "^1.1.1",
 		"expo": "^23.0.4",
 		"react": "16.0.0",

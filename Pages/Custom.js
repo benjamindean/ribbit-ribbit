@@ -20,13 +20,9 @@ class MainView extends PureComponent {
 		this.pausedTime = new Stopwatch();
 	}
 
-	_updatePattern = time => {
-		this.props.patternobject.update(time);
-	};
-
 	_onPressIn = () => {
 		this.pausedTime.stop();
-		this._updatePattern(this.pausedTime.ms);
+		this.props.actions.pattern.update(this.pausedTime.ms);
 		this.pausedTime.reset();
 
 		this.vibrateTime.start();
@@ -37,33 +33,29 @@ class MainView extends PureComponent {
 		this.pausedTime.start();
 
 		this.vibrateTime.stop();
-		this._updatePattern(this.vibrateTime.ms);
+		this.props.actions.pattern.update(this.vibrateTime.ms);
 		Vibration.cancel();
 
 		this.vibrateTime.reset();
 	};
 
 	_resetPattern = () => {
-		Vibration.cancel();
-
-		this.props.patternobject.reset();
-		this.props.playprogressbar.reset();
+		this.props.actions.pattern.reset();
+		this.props.actions.progressbar.reset();
 
 		this.pausedTime.stop();
 		this.pausedTime.reset();
 		this.vibrateTime.stop();
 		this.vibrateTime.reset();
-
-		ToastAndroid.show('Pattern cleared', ToastAndroid.SHORT);
 	};
 
 	_updateProgressBar = () => {
-		this.props.playprogressbar.reset();
+		this.props.actions.progressbar.reset();
 
 		const percent = this.props.pattern.reduce((a, b) => a + b, 0) / 10;
 		const interval = setInterval(() => {
 			if (this.props.progress < 0.9) {
-				this.props.playprogressbar.update(0.1);
+				this.props.actions.progressbar.update(0.1);
 			} else {
 				clearInterval(interval);
 			}
@@ -71,16 +63,8 @@ class MainView extends PureComponent {
 	};
 
 	_playPattern = () => {
-		if (this.props.pattern.length) {
-			this._updateProgressBar();
-
-			ToastAndroid.show(
-				`Playing pattern: ${JSON.stringify(this.props.pattern)}`,
-				ToastAndroid.LONG
-			);
-
-			Vibration.vibrate(this.props.pattern);
-		}
+		this._updateProgressBar();
+		this.props.actions.pattern.play(this.props.pattern);
 	};
 
 	render() {
@@ -92,24 +76,15 @@ class MainView extends PureComponent {
 					<Row size={2}>
 						<Col>
 							<View style={styles.recordButton}>
-								<PlayProgressBar
-									progress={this.props.progress}
-									pattern={this.props.pattern}
-								/>
-								<PlayButton
-									onPressIn={this._onPressIn}
-									onPressOut={this._onPressOut}
-								/>
+								<PlayProgressBar progress={this.props.progress} pattern={this.props.pattern} />
+								<PlayButton onPressIn={this._onPressIn} onPressOut={this._onPressOut} />
 							</View>
 						</Col>
 					</Row>
 
 					<Row size={2}>
 						<Col>
-							<Button
-								onPress={this._playPattern}
-								name="controller-play"
-							/>
+							<Button onPress={this._playPattern} name="controller-play" />
 						</Col>
 						<Col>
 							<Button onPress={this._resetPattern} name="cycle" />
@@ -130,8 +105,10 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		playprogressbar: bindActionCreators(PlayProgressBarActions, dispatch),
-		patternobject: bindActionCreators(PatternActions, dispatch)
+		actions: {
+			progressbar: bindActionCreators(PlayProgressBarActions, dispatch),
+			pattern: bindActionCreators(PatternActions, dispatch)
+		}
 	};
 }
 

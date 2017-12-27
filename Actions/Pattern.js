@@ -1,5 +1,13 @@
+export const PLAY_PATTERN = 'PLAY_PATTERN';
 export const UPDATE_PATTERN = 'UPDATE_PATTERN';
 export const RESET_PATTERN = 'RESET_PATTERN';
+
+export function play(pattern) {
+  return {
+    type: PLAY_PATTERN,
+    pattern
+  };
+}
 
 export function update(element) {
   return {
