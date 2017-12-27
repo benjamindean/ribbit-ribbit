@@ -24,19 +24,18 @@ class MainView extends PureComponent {
 		this.pausedTime.stop();
 		this.props.actions.pattern.update(this.pausedTime.ms);
 		this.pausedTime.reset();
-
 		this.vibrateTime.start();
+
 		Vibration.vibrate(5000);
 	};
 
 	_onPressOut = () => {
 		this.pausedTime.start();
-
 		this.vibrateTime.stop();
 		this.props.actions.pattern.update(this.vibrateTime.ms);
-		Vibration.cancel();
-
 		this.vibrateTime.reset();
+
+		Vibration.cancel();
 	};
 
 	_resetPattern = () => {
@@ -50,6 +49,10 @@ class MainView extends PureComponent {
 	};
 
 	_updateProgressBar = () => {
+		if (!this.props.pattern.length) {
+			return;
+		}
+		
 		this.props.actions.progressbar.reset();
 
 		const percent = this.props.pattern.reduce((a, b) => a + b, 0) / 10;

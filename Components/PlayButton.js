@@ -1,11 +1,11 @@
 // @flow
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { TouchableNativeFeedback, View } from 'react-native';
 import colors from '../Styles/colors';
 import styles from '../Styles/main'
 import { Entypo } from '@expo/vector-icons';
 
-export default class PlayButton extends Component {
+export default class PlayButton extends PureComponent {
 	render() {
 		return (
 			<TouchableNativeFeedback

@@ -1,10 +1,10 @@
 // @flow
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { StyleSheet } from 'react-native';
 import * as Progress from 'react-native-progress';
 import colors from '../Styles/colors';
 
-export default class ProgressBar extends Component {
+export default class ProgressBar extends PureComponent {
 	render() {
 		return (
 			<Progress.Circle
