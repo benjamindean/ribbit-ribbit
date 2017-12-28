@@ -52,7 +52,7 @@ class MainView extends PureComponent {
 		if (!this.props.pattern.length) {
 			return;
 		}
-		
+
 		this.props.actions.progressbar.reset();
 
 		const percent = this.props.pattern.reduce((a, b) => a + b, 0) / 10;
@@ -74,13 +74,18 @@ class MainView extends PureComponent {
 		return (
 			<Grid style={styles.container}>
 				<Col>
-					<View style={styles.statusbar} />
 					<Row size={1} />
 					<Row size={2}>
 						<Col>
 							<View style={styles.recordButton}>
-								<PlayProgressBar progress={this.props.progress} pattern={this.props.pattern} />
-								<PlayButton onPressIn={this._onPressIn} onPressOut={this._onPressOut} />
+								<PlayProgressBar
+									progress={this.props.progress}
+									pattern={this.props.pattern}
+								/>
+								<PlayButton
+									onPressIn={this._onPressIn}
+									onPressOut={this._onPressOut}
+								/>
 							</View>
 						</Col>
 					</Row>
