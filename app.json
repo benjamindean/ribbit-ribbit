@@ -1,11 +1,28 @@
 {
-  "expo": {
-    "sdkVersion": "24.0.0",
-    "android": {
-      "package": "com.benjaminabel.ribbitribbit"
-    },
-    "ios": {
-      "bundleIdentifier": "com.benjaminabel.ribbitribbit"
-    }
-  }
+	"expo": {
+		"name": "Ribbit Ribbit",
+		"description": "",
+		"slug": "ribbit-ribbit",
+		"privacy": "unlisted",
+		"sdkVersion": "24.0.0",
+		"version": "1.0.0",
+		"platforms": ["android"],
+		"githubUrl": "https://github.com/benjamindean/ribbit-ribbit",
+		"primaryColor": "#000000",
+		"icon": "",
+		"appKey": "ribbit",
+		"androidStatusBar": {
+			"barStyle": "light-content",
+			"backgroundColor": "#000000"
+		},
+		"scheme": "",
+		"entryPoint": "./App.js",
+		"android": {
+			"package": "com.benjaminabel.ribbitribbit",
+			"versionCode": "1",
+			"icon": "",
+			"playStoreUrl": "",
+			"permissions": ["VIBRATE"]
+		}
+	}
 }
