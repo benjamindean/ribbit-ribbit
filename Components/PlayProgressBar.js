@@ -25,7 +25,7 @@ export default class ProgressBar extends PureComponent {
 ProgressBar.defaultProps = {
 	size: 250,
 	progress: 0,
-	thickness: 5,
+	thickness: 20,
 	borderWidth: 0,
 	animationType: 'timing'
 };
@@ -40,6 +40,7 @@ ProgressBar.propTypes = {
 
 const styles = StyleSheet.create({
 	progress: {
-		position: 'absolute'
+		position: 'absolute',
+		alignSelf: 'center'
 	}
 });

@@ -1,7 +1,7 @@
 import { StyleSheet, Platform } from 'react-native';
 import colors from './colors';
 
-export default styles = StyleSheet.create({
+export default (styles = StyleSheet.create({
 	container: {
 		backgroundColor: colors.dark
 	},
@@ -25,9 +25,9 @@ export default styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
 		backgroundColor: colors.light,
-		borderWidth: 5,
-		borderRadius: 150,
-		borderColor: colors.semiDark
+		borderWidth: 20,
+		borderRadius: 125,
+		borderColor: 'rgba(0, 0, 0, 0.1)'
 	},
 	roundButton: {
 		width: 100,
@@ -40,4 +40,4 @@ export default styles = StyleSheet.create({
 		alignItems: 'center',
 		backgroundColor: colors.light
 	}
-});
+}));

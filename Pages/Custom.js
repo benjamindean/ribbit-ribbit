@@ -1,6 +1,6 @@
 // @flow
 import React, { PureComponent } from 'react';
-import { ToastAndroid, Vibration, View } from 'react-native';
+import { ToastAndroid, Vibration } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import Stopwatch from 'timer-stopwatch';
 import Button from '../Components/Button';
@@ -77,19 +77,13 @@ class MainView extends PureComponent {
 					<Row size={1} />
 					<Row size={2}>
 						<Col>
-							<View style={styles.recordButton}>
-								<PlayProgressBar
-									progress={this.props.progress}
-									pattern={this.props.pattern}
-								/>
-								<PlayButton
-									onPressIn={this._onPressIn}
-									onPressOut={this._onPressOut}
-								/>
-							</View>
+							<PlayProgressBar
+								progress={this.props.progress}
+								pattern={this.props.pattern}
+							/>
+							<PlayButton onPressIn={this._onPressIn} onPressOut={this._onPressOut} />
 						</Col>
 					</Row>
-
 					<Row size={2}>
 						<Col>
 							<Button onPress={this._playPattern} name="controller-play" />
