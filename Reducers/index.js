@@ -10,6 +10,7 @@ const initialNavState = AppNavigator.router.getStateForAction(firstAction, tempN
 
 function nav(state = initialNavState, action) {
 	let nextState;
+
 	switch (action.type) {
 		case 'CustomPattern':
 			nextState = AppNavigator.router.getStateForAction(NavigationActions.back(), state);

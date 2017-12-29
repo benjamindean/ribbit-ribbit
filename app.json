@@ -8,20 +8,16 @@
 		"version": "1.0.0",
 		"platforms": ["android"],
 		"githubUrl": "https://github.com/benjamindean/ribbit-ribbit",
-		"primaryColor": "#000000",
+		"primaryColor": "#333232",
 		"icon": "",
-		"appKey": "ribbit",
 		"androidStatusBar": {
 			"barStyle": "light-content",
-			"backgroundColor": "#000000"
+			"backgroundColor": "#333232"
 		},
 		"scheme": "",
-		"entryPoint": "./App.js",
 		"android": {
 			"package": "com.benjaminabel.ribbitribbit",
-			"versionCode": "1",
-			"icon": "",
-			"playStoreUrl": "",
+			"versionCode": 1,
 			"permissions": ["VIBRATE"]
 		}
 	}
