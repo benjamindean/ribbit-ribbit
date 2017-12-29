@@ -10,11 +10,10 @@ import * as PlayProgressBarActions from '../Actions/PlayProgressBar';
 import * as PatternActions from '../Actions/Pattern';
 import styles from '../Styles/main';
 
-import { Provider, connect } from 'react-redux';
-import { createStore, bindActionCreators } from 'redux';
-import rootReducer from '../Reducers/index';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-class MainView extends PureComponent {
+export class CustomPattern extends PureComponent {
 	static navigationOptions = {
 		title: 'Custom Pattern'
 	};
@@ -118,4 +117,4 @@ function mapDispatchToProps(dispatch) {
 	};
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainView);
+export default connect(mapStateToProps, mapDispatchToProps)(CustomPattern);

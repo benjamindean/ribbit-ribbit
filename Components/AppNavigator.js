@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addNavigationHelpers, TabNavigator } from 'react-navigation';
 
-import CustomPattern from '../Pages/Custom';
+import CustomPattern from '../Pages/CustomPattern';
 import MorseCode from '../Pages/MorseCode';
 import colors from '../Styles/colors';
 

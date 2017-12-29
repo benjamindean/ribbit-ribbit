@@ -1,0 +1,279 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#3D3F4C",
+      "flex": 1,
+      "flexDirection": "row",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "column",
+      }
+    }
+  >
+    <View
+      size={1}
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+        }
+      }
+    />
+    <View
+      size={2}
+      style={
+        Object {
+          "flex": 2,
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "column",
+          }
+        }
+      >
+        <View
+          animationType="timing"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "overflow": "hidden",
+              },
+              Object {
+                "alignSelf": "center",
+                "position": "absolute",
+              },
+            ]
+          }
+          useNativeDriver={true}
+        >
+          <ARTSurfaceView
+            style={
+              Array [
+                Object {
+                  "transform": Array [
+                    Object {
+                      "rotate": "0deg",
+                    },
+                  ],
+                },
+                Object {
+                  "height": 250,
+                  "width": 250,
+                },
+              ]
+            }
+          >
+            <ARTShape
+              d={
+                Array [
+                  0,
+                  125,
+                  10,
+                  2,
+                  125,
+                  10,
+                ]
+              }
+              fill={null}
+              opacity={1}
+              stroke={
+                Array [
+                  0.2,
+                  0.19607843137254902,
+                  0.19607843137254902,
+                  1,
+                ]
+              }
+              strokeCap={0}
+              strokeDash={null}
+              strokeJoin={1}
+              strokeWidth={20}
+              transform={
+                Array [
+                  1,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                ]
+              }
+            />
+          </ARTSurfaceView>
+        </View>
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hasTVPreferredFocus={undefined}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Object {
+                "alignItems": "center",
+                "alignSelf": "center",
+                "backgroundColor": "#96A892",
+                "borderColor": "rgba(0, 0, 0, 0.1)",
+                "borderRadius": 125,
+                "borderWidth": 20,
+                "height": 250,
+                "justifyContent": "center",
+                "width": 250,
+              },
+            ]
+          }
+          testID={undefined}
+          tvParallaxProperties={undefined}
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      size={2}
+      style={
+        Object {
+          "flex": 2,
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "column",
+          }
+        }
+      >
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hasTVPreferredFocus={undefined}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Object {
+                "alignItems": "center",
+                "alignSelf": "center",
+                "backgroundColor": "#96A892",
+                "borderColor": "#485158",
+                "borderRadius": 100,
+                "borderWidth": 3,
+                "height": 100,
+                "justifyContent": "center",
+                "width": 100,
+              },
+            ]
+          }
+          testID={undefined}
+          tvParallaxProperties={undefined}
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "column",
+          }
+        }
+      >
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hasTVPreferredFocus={undefined}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Object {
+                "alignItems": "center",
+                "alignSelf": "center",
+                "backgroundColor": "#96A892",
+                "borderColor": "#485158",
+                "borderRadius": 100,
+                "borderWidth": 3,
+                "height": 100,
+                "justifyContent": "center",
+                "width": 100,
+              },
+            ]
+          }
+          testID={undefined}
+          tvParallaxProperties={undefined}
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          />
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

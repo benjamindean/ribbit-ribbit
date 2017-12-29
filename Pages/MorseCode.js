@@ -6,11 +6,10 @@ import * as PlayProgressBarActions from '../Actions/PlayProgressBar';
 import * as PatternActions from '../Actions/Pattern';
 import styles from '../Styles/main';
 
-import { Provider, connect } from 'react-redux';
-import { createStore, bindActionCreators } from 'redux';
-import rootReducer from '../Reducers/index';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-class MorseCode extends PureComponent {
+export class MorseCode extends PureComponent {
 	static navigationOptions = {
 		title: 'Morse Code'
 	};
