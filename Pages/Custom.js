@@ -15,6 +15,10 @@ import { createStore, bindActionCreators } from 'redux';
 import rootReducer from '../Reducers/index';
 
 class MainView extends PureComponent {
+	static navigationOptions = {
+		title: 'Custom Pattern'
+	};
+
 	componentDidMount() {
 		this.vibrateTime = new Stopwatch();
 		this.pausedTime = new Stopwatch();

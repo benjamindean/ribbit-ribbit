@@ -11,6 +11,10 @@ import { createStore, bindActionCreators } from 'redux';
 import rootReducer from '../Reducers/index';
 
 class MorseCode extends PureComponent {
+	static navigationOptions = {
+		title: 'Morse Code'
+	};
+
 	render() {
 		return (
 			<Grid style={styles.container}>
