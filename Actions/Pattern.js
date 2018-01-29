@@ -2,6 +2,7 @@ export const PLAY_PATTERN = 'PLAY_PATTERN';
 export const UPDATE_PATTERN = 'UPDATE_PATTERN';
 export const RESET_PATTERN = 'RESET_PATTERN';
 export const SET_PATTERN = 'SET_PATTERN';
+export const SHARE_PATTERN = 'SHARE_PATTERN';
 
 export function play(pattern) {
   return {
@@ -27,5 +28,13 @@ export function update(element) {
 export function reset() {
   return {
     type: RESET_PATTERN
+  };
+}
+
+export function share(view, pattern) {
+  return {
+    type: SHARE_PATTERN,
+    view,
+    pattern
   };
 }

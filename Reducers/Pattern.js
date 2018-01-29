@@ -1,13 +1,12 @@
-import {
-	ToastAndroid,
-	Vibration
-} from 'react-native';
+import { ToastAndroid, Vibration, Share } from 'react-native';
 import {
 	PLAY_PATTERN,
 	SET_PATTERN,
 	UPDATE_PATTERN,
-	RESET_PATTERN
+	RESET_PATTERN,
+	SHARE_PATTERN
 } from '../Actions/Pattern';
+import * as qs from 'qs';
 
 class PatternReducer {
 	constructor(state) {
@@ -19,7 +18,7 @@ class PatternReducer {
 	}
 
 	set value(pattern) {
-		return this.state = pattern;
+		return (this.state = pattern);
 	}
 
 	validate() {
@@ -46,7 +45,10 @@ class PatternReducer {
 
 		if (validPattern) {
 			Vibration.vibrate(validPattern);
-			ToastAndroid.show(`Playing pattern: ${JSON.stringify(validPattern)}`, ToastAndroid.LONG);
+			ToastAndroid.show(
+				`Playing pattern: ${JSON.stringify(validPattern)}`,
+				ToastAndroid.LONG
+			);
 		}
 
 		return this.state;
@@ -62,6 +64,24 @@ class PatternReducer {
 
 		return [];
 	}
+
+	share(view, pattern) {
+		const queryString = qs.stringify({
+			view,
+			pattern
+		});
+
+		Share.share(
+			{
+				title: 'Ribbit Pattern',
+				message: 'Click to Open',
+				url: `${Expo.Constants.linkingUri}/?${queryString}`
+			},
+			{
+				dialogTitle: 'Sharing Ribbit Pattern'
+			}
+		);
+	}
 }
 
 export default function pattern(state = [], action) {
@@ -74,6 +94,8 @@ export default function pattern(state = [], action) {
 			return pattern.value(action.patern);
 		case UPDATE_PATTERN:
 			return pattern.update(action.element);
+		case SHARE_PATTERN:
+			return pattern.share(action.view, action.pattern);
 		case RESET_PATTERN:
 			return pattern.reset();
 		default:

@@ -1,13 +1,13 @@
 // @flow
 import React, { PureComponent } from 'react';
-import { ToastAndroid, Vibration } from 'react-native';
+import { ToastAndroid, Vibration, Linking } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import Stopwatch from 'timer-stopwatch';
 import Button from '../Components/Button';
-import PlayButton from '../Components/PlayButton';
-import PlayProgressBar from '../Components/PlayProgressBar';
+import PlayButtonFullWidth from '../Components/PlayButtonFullWidth';
 import * as PlayProgressBarActions from '../Actions/PlayProgressBar';
 import * as PatternActions from '../Actions/Pattern';
+import * as qs from 'qs';
 import styles from '../Styles/main';
 
 import { connect } from 'react-redux';
@@ -19,9 +19,24 @@ export class CustomPattern extends PureComponent {
 	};
 
 	componentDidMount() {
+		Linking.addEventListener('url', this._handleUrl);
+
 		this.vibrateTime = new Stopwatch();
 		this.pausedTime = new Stopwatch();
 	}
+
+	_handleUrl = url => {
+		const queryString = url.replace(Expo.Constants.linkingUri, '');
+
+		if (queryString) {
+			const data = qs.parse(queryString);
+			const pattern = data.pattern;
+
+			if (pattern) {
+				this.pattern.play(pattern);
+			}
+		}
+	};
 
 	_onPressIn = () => {
 		this.pausedTime.stop();
@@ -45,11 +60,15 @@ export class CustomPattern extends PureComponent {
 		this.props.actions.pattern.reset();
 		this.props.actions.progressbar.reset();
 
+		this._stopRecording();
+	};
+
+	_stopRecording() {
 		this.pausedTime.stop();
 		this.pausedTime.reset();
 		this.vibrateTime.stop();
 		this.vibrateTime.reset();
-	};
+	}
 
 	_updateProgressBar = () => {
 		if (!this.props.pattern.length) {
@@ -73,26 +92,33 @@ export class CustomPattern extends PureComponent {
 		this.props.actions.pattern.play(this.props.pattern);
 	};
 
+	_sharePattern = () => {
+		this.props.actions.pattern.share('CustomPattern', this.props.pattern);
+	};
+
 	render() {
 		return (
 			<Grid style={styles.container}>
 				<Col>
-					<Row size={1} />
 					<Row size={2}>
 						<Col>
-							<PlayProgressBar
+							<PlayButtonFullWidth 
+								onPressIn={this._onPressIn} 
+								onPressOut={this._onPressOut}
 								progress={this.props.progress}
 								pattern={this.props.pattern}
 							/>
-							<PlayButton onPressIn={this._onPressIn} onPressOut={this._onPressOut} />
 						</Col>
 					</Row>
-					<Row size={2}>
+					<Row size={1} style={styles.center}>
+						<Col>
+							<Button onPress={this._resetPattern} name="cycle" />
+						</Col>
 						<Col>
 							<Button onPress={this._playPattern} name="controller-play" />
 						</Col>
 						<Col>
-							<Button onPress={this._resetPattern} name="cycle" />
+							<Button onPress={this._sharePattern} name="share" />
 						</Col>
 					</Row>
 				</Col>

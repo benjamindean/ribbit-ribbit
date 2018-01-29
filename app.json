@@ -4,7 +4,7 @@
 		"description": "",
 		"slug": "ribbit-ribbit",
 		"privacy": "unlisted",
-		"sdkVersion": "24.0.0",
+		"sdkVersion": "25.0.0",
 		"version": "1.0.0",
 		"platforms": ["android"],
 		"githubUrl": "https://github.com/benjamindean/ribbit-ribbit",
@@ -14,7 +14,7 @@
 			"barStyle": "light-content",
 			"backgroundColor": "#333232"
 		},
-		"scheme": "",
+		"scheme": "ribbit",
 		"android": {
 			"package": "com.benjaminabel.ribbitribbit",
 			"versionCode": 1,
